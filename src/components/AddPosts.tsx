@@ -20,7 +20,7 @@ const AddPosts = async() => {
           desc:desc
         }
       })
-      console.log('ress',result);
+      console.log('ress1',result);
       
     } catch (error) {
       console.log(error);
