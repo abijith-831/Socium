@@ -1,7 +1,31 @@
+'use client';
+
 import React from 'react'
 import Image from 'next/image'
 
 const ProfileCard = () => {
+  
+  const handleSaveProfile = async () => {
+    const res = await fetch('/api/save-profile', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: 'Abhijithppp',
+        email: 'abhijith@example.com11',
+        password:'sdkfnjsgmksnfn',
+      }),
+    });
+  
+    const data = await res.json();
+    if (data.success) {
+      alert('Profile saved to MySQL with ID: ' + data.id);
+    } else {
+      alert('Failed to save profile');
+    }
+  };
+  
   return (
     <div className='p-4 bg-white rounded-lg shadow-md text-sm flex flex-col gap-6'>
       <div className='h-20 relative'>
@@ -18,7 +42,7 @@ const ProfileCard = () => {
             </div>
             <span className='text-xs text-gray-500'> 500 Followers</span>
         </div>
-            <button className='bg-blue-500 text-white text-xs p-2 rounded-md'>My Profile</button>
+            <button onClick={handleSaveProfile} className='bg-blue-500 text-white text-xs p-2 rounded-md'>My Profile</button>
       </div>
     </div>
   )

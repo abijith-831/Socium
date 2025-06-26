@@ -1,7 +1,33 @@
 import React from 'react'
 import Image from 'next/image'
+import { auth } from '@clerk/nextjs/server'
+import { prisma } from '@/lib/client'
 
-const AddPosts = () => {
+const AddPosts = async() => {
+
+  const {userId} = await auth()
+  console.log('dsfsdf',userId);
+  
+
+  const testAction = async(formData:FormData)=>{
+    "use server"
+    if(!userId) return
+    const desc = formData.get('desc') as string
+    try {
+      const result = await prisma.post.create({
+        data:{
+          userId:userId,
+          desc:desc
+        }
+      })
+      console.log('ress',result);
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
+  }
+
   return (
     <div className='p-4 bg-white rounded-lg flex gap-4 justify-between text-sm'>
       <div className='w-12 h-12 relative rounded-full overflow-hidden'>
@@ -9,10 +35,11 @@ const AddPosts = () => {
       </div>
 
       <div className='post flex-1'>
-        <div className='flex gap-4'>
-          <textarea placeholder="What's on your mind?" className='bg-slate-300 rounded-lg flex-1 p-2 ring-2'></textarea>
+        <form action={testAction} className='flex gap-4'>
+          <textarea placeholder="What's on your mind?" name='desc' className='bg-slate-300 rounded-lg flex-1 p-2 ring-2'></textarea>
           <Image  src='/images/emoji.png'  alt='emoji'  width={20}  height={20}  className='w-7 h-7 border-2 cursor-pointer self-end'   />
-        </div>
+          <button>Send</button>
+        </form >
         <div className='flex items-center gap-4 mt-4 text-gray-600 flex-wrap'>
             <div className='flex items-center gap-2 cursor-pointer'>
                 <Image src='/images/addimage.png' width={20} height={20} alt=''/>Photo

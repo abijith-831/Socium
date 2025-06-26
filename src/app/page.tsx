@@ -6,7 +6,9 @@ import RightMenu from '@/components/RightMenu'
 import Stories from '@/components/Stories'
 import React from 'react'
 
+
 const HomePage = () => {
+
   return (
     <div className='flex gap-6 w-full pt-6'>
       <div className='hidden xl:block w-[20%]'><LeftMenu type='home'/></div>
