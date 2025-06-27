@@ -2,14 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs'
 
 
 
@@ -26,7 +18,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
 
     <html lang="en">
       <body>
@@ -39,6 +30,5 @@ export default function RootLayout({
 
       </body>
     </html>
-    </ClerkProvider>
   );
 }
