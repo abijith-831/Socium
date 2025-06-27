@@ -7,11 +7,25 @@ export default function SignupPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSignup = async (e: any) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Call API here
-    console.log({ username, email, password })
+  
+    const res = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, email, password })
+    })
+  
+    const data = await res.json()
+  
+    if (res.ok) {
+      alert('Signup successful!')
+      window.location.href = '/login' // or redirect however you prefer
+    } else {
+      alert(data.error || 'Signup failed')
+    }
   }
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
