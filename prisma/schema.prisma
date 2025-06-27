@@ -12,6 +12,8 @@ datasource db {
 model User{
   id String @id
   username String @unique
+  email String @unique
+  password String
   avatar String?
   cover String?
   name String?

@@ -34,11 +34,6 @@ const Navbar = () => {
        </div>
       </div>
       <div className='right w-[30%] flex  gap-4 xl:gap-8 justify-end'>
-        
-            <div className='inline-block h-4 w-4 animte-spin rounded-full border-2 border-gray-500 border-solid  align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite ] dark:text-white'></div>
-      
-        
-             
                 <div className="cursor-pointer">
                     <Users className="w-6 h-6" />
                 </div>
@@ -48,15 +43,6 @@ const Navbar = () => {
                 <div className="cursor-pointer">
                     <Bell className="w-6 h-6" />
                 </div>
-                
-            
-            
-                <div className="flex items-center gap-2 cursor-pointer">
-                    <Users className="w-5 h-5" />
-                    <Link href="/signin">Login / Register</Link>
-                </div>
-            
-        
         <MobileMenu/>
       </div>
     </div>
