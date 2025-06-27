@@ -6,10 +6,24 @@ export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleLogin = async (e: any) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Call API here
-    console.log({ email, password })
+
+    const res = await fetch('/api/auth/login',{
+        method : 'POST',
+        headers : {'Content-Type':'application/json'},
+        body : JSON.stringify({email , password})
+    })
+
+    const data = await res.json()
+
+    if(res.ok){
+        localStorage.setItem('token',data.token)
+        alert('Login Successful')
+        window.location.href = '/'
+    }else{
+        alert(data.error|| 'Login Failed')
+    }
   }
 
   return (
