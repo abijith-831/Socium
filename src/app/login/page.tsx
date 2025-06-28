@@ -51,7 +51,7 @@ export default function LoginPage() {
         <input
           type="password"
           placeholder="Password"
-          className="w-full px-4 py-2 border rounded mb-6"
+          className="w-full  px-4 py-2 border rounded mb-6"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

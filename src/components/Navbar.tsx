@@ -20,13 +20,19 @@ const Navbar = () => {
   const dispatch = useDispatch()
   const router = useRouter()
 
-  const handleLogout = () => {
-    localStorage.removeItem('token') 
-    dispatch(clearUser())   
-
+  const handleLogout = async () => {
+    localStorage.removeItem('token')
+  
+    await fetch('/api/auth/logout', {
+      method: 'POST',
+    })
+  
+    dispatch(clearUser())
+  
     alert('Logged out!')
-    router.push('/login')
+    
   }
+  
   
   return (
     <div className='h-24 flex items-center justify-between'>
