@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-
-
-
+import { StoreProvider } from "../store/StoreProvider";
 
 
 export const metadata: Metadata = {
@@ -17,18 +14,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
+        <StoreProvider> 
+          <html lang="en">
+            <body>
 
-    <html lang="en">
-      <body>
-        <div className="bg-slate-200 w-full px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
-          <Navbar/>
-        </div>
-        <div className="bg-slate-400 px-4 w-full md:px-8 lg:px-10 xl:px-10 2xl:px-20  ">
-          {children}
-        </div>
+                <div className="bg-slate-200 w-full px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+                  <Navbar />
+                </div>
 
-      </body>
-    </html>
+                <div className="bg-slate-400 px-4 w-full md:px-8 lg:px-10 xl:px-10 2xl:px-20">
+                  {children}
+                </div>
+
+            </body>
+          </html>
+        </StoreProvider>
   );
 }

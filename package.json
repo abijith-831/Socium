@@ -13,16 +13,19 @@
   "dependencies": {
     "@clerk/nextjs": "^6.22.0",
     "@prisma/client": "^6.10.1",
+    "@reduxjs/toolkit": "^2.8.2",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "dotenv": "^16.5.0",
     "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "lucide-react": "^0.515.0",
     "mysql2": "^3.14.1",
     "next": "15.3.3",
     "pg": "^8.16.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "svix": "^1.68.0"
   },
   "devDependencies": {

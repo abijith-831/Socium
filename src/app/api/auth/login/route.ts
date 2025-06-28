@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { cookies } from 'next/headers'
 
 const prisma = new PrismaClient()
 
@@ -25,6 +26,13 @@ export async function POST(req:Request){
             JWT_SECRET,
             {expiresIn:'7d'}
         )
+
+        const cookieStore = await cookies()
+        cookieStore.set('token', token, {
+          httpOnly: true,
+          path: '/',
+          maxAge: 60 * 60 * 24 * 7,
+        })
 
         return new Response(JSON.stringify({success:true , token}),{status:200})
     } catch (error) {

@@ -1,11 +1,18 @@
-'use client'
+"use client";
 
 import { useState } from 'react'
+import { signUpSuccess } from '@/store/userSlice'
+import { useDispatch } from 'react-redux'
+import { useRouter } from 'next/navigation';
+
 
 export default function SignupPage() {
+  const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const router =  useRouter()
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -19,8 +26,10 @@ export default function SignupPage() {
     const data = await res.json()
   
     if (res.ok) {
-      alert('Signup successful!')
-      window.location.href = '/login' // or redirect however you prefer
+      console.log('fsdfs',data.user);
+      localStorage.setItem('token', data.token) // if your backend sends token
+      dispatch(signUpSuccess(data.user))
+      router.push('/')
     } else {
       alert(data.error || 'Signup failed')
     }

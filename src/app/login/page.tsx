@@ -1,31 +1,49 @@
 'use client'
 
 import { useState } from 'react'
+import { loginSuccess } from '@/store/userSlice'
+import { useDispatch } from 'react-redux'
+import { jwtDecode } from 'jwt-decode' 
+
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const dispatch = useDispatch()
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    const res = await fetch('/api/auth/login',{
-        method : 'POST',
-        headers : {'Content-Type':'application/json'},
-        body : JSON.stringify({email , password})
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
     })
 
     const data = await res.json()
 
-    if(res.ok){
-        localStorage.setItem('token',data.token)
-        alert('Login Successful')
-        window.location.href = '/'
-    }else{
-        alert(data.error|| 'Login Failed')
+    if (res.ok) {
+      // Save token
+      localStorage.setItem('token', data.token)
+
+      // Decode token to get user info
+      const decoded: any = jwtDecode(data.token)
+
+      // Dispatch user to Redux
+      dispatch(loginSuccess({
+        id: decoded.id,
+        email: decoded.email,
+        username: decoded.username
+      }))
+
+      // Redirect to home
+      window.location.href = '/'
+    } else {
+      alert(data.error || 'Login failed')
     }
   }
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <form onSubmit={handleLogin} className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">

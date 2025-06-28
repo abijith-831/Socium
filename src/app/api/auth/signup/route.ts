@@ -23,7 +23,6 @@ export async function POST(req:Request){
             }
         })
         
-
         return new Response(JSON.stringify({success:true,user}),{status:200})
     } catch (error) {
         console.error(error)

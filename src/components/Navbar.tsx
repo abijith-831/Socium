@@ -1,13 +1,33 @@
+"use client";
 import React from 'react'
 import Link from 'next/link'
 import MobileMenu from './MobileMenu'
 import Image from 'next/image'
 import { Home, Users, BookOpen,MessageSquare, Bell ,LogIn , Search} from 'lucide-react'; 
-import { ClerkLoaded, ClerkLoading, UserButton } from '@clerk/nextjs';
-import { SignedIn, SignedOut } from '@clerk/nextjs';
+import { useDispatch, useSelector } from 'react-redux'
+import { clearUser } from '@/store/userSlice';
+import { RootState } from '@/store/store';
+import { useRouter } from 'next/navigation';
+
 
 
 const Navbar = () => {
+
+  const user = useSelector((state: RootState) => state.user.currentUser)
+
+  console.log('User from Redux:', user)
+
+  const dispatch = useDispatch()
+  const router = useRouter()
+
+  const handleLogout = () => {
+    localStorage.removeItem('token') 
+    dispatch(clearUser())   
+
+    alert('Logged out!')
+    router.push('/login')
+  }
+  
   return (
     <div className='h-24 flex items-center justify-between'>
       <div className='left md:hidden lg:block w-[20%]'>
@@ -43,6 +63,7 @@ const Navbar = () => {
                 <div className="cursor-pointer">
                     <Bell className="w-6 h-6" />
                 </div>
+                <button onClick={handleLogout}>logout</button>
         <MobileMenu/>
       </div>
     </div>
