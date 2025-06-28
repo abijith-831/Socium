@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { loginSuccess } from '@/store/userSlice'
 import { useDispatch } from 'react-redux'
-import { jwtDecode } from 'jwt-decode' 
+import { useRouter } from 'next/navigation'
 
 
 
@@ -12,6 +12,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState('')
 
   const dispatch = useDispatch()
+  const router = useRouter()
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -25,21 +26,12 @@ export default function LoginPage() {
     const data = await res.json()
 
     if (res.ok) {
-      // Save token
+      console.log('ree',res);
+      
+      console.log('after login',data.user);
       localStorage.setItem('token', data.token)
-
-      // Decode token to get user info
-      const decoded: any = jwtDecode(data.token)
-
-      // Dispatch user to Redux
-      dispatch(loginSuccess({
-        id: decoded.id,
-        email: decoded.email,
-        username: decoded.username
-      }))
-
-      // Redirect to home
-      window.location.href = '/'
+      dispatch(loginSuccess(data.user))
+      router.push('/')
     } else {
       alert(data.error || 'Login failed')
     }

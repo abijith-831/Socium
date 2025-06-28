@@ -25,7 +25,7 @@ export async function POST(req:Request){
             { id : user.id , email:user.email , username:user.username},
             JWT_SECRET,
             {expiresIn:'7d'}
-        )
+        ) 
 
         const cookieStore = await cookies()
         cookieStore.set('token', token, {
@@ -34,7 +34,7 @@ export async function POST(req:Request){
           maxAge: 60 * 60 * 24 * 7,
         })
 
-        return new Response(JSON.stringify({success:true , token}),{status:200})
+        return new Response(JSON.stringify({success:true , token , user}),{status:200})
     } catch (error) {
         console.error('Login Error',error)
         return new Response(JSON.stringify({error:'Server Error'}),{status:500})

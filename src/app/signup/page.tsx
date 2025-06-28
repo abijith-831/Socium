@@ -27,7 +27,7 @@ export default function SignupPage() {
   
     if (res.ok) {
       console.log('fsdfs',data.user);
-      localStorage.setItem('token', data.token) // if your backend sends token
+      localStorage.setItem('token', data.token) 
       dispatch(signUpSuccess(data.user))
       router.push('/')
     } else {
