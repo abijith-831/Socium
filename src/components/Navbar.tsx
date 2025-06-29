@@ -36,9 +36,9 @@ const Navbar = () => {
   
   
   return (
-    <div className='h-24 flex items-center justify-between'>
+    <div className='h-24 flex w-full items-center justify-between'>
       <div className='left md:hidden lg:block w-[20%]'>
-        <Link href='/' className='font-bold text-xl text-blue-500'>LOGO</Link>
+        <Link href='/' className='font-bold text-xl text-blue-500'>SOCIUM</Link>
       </div>
       <div className='center hidden md:flex w-[50%] items-center justify-between'>
         <div className='flex  gap-6 text-gray-600'>
