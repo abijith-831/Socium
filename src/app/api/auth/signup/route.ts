@@ -7,6 +7,11 @@ export async function POST(req:Request){
     try {
         
         const { username , email , password } = await req.json()
+        
+        const existingUsername = await prisma.user.findUnique({ where: { username } })
+        if (existingUsername) {
+          return new Response(JSON.stringify({ error: "Username already taken" }), { status: 400 })
+        }
 
         const existing = await prisma.user.findUnique({where:{email}})
         if(existing){
