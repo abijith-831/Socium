@@ -1,8 +1,6 @@
-
 import type { Metadata } from "next";
 import "./globals.css";
 import { StoreProvider } from "../store/StoreProvider";
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,14 +13,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProvider>
-      <html lang="en">
-        <body>
-          <div className="bg-slate-400  w-full ">
+    <html lang="en">
+      <body>
+        <StoreProvider>
+          <div className="bg-slate-400 w-full">
             {children}
           </div>
-        </body>
-      </html>
-    </StoreProvider>
+        </StoreProvider>
+      </body>
+    </html>
   );
 }

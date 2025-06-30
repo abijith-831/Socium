@@ -28,10 +28,9 @@ const Navbar = () => {
     await fetch('/api/auth/logout', {
       method: 'POST',
     })
-  
     dispatch(clearUser())
-  
     alert('Logged out!')
+    router.push('/login')
   }
   
   
@@ -86,15 +85,8 @@ const Navbar = () => {
                 No
               </button>
               <button 
-                onClick={async () => {
-                  localStorage.removeItem('token')
-                  await fetch('/api/auth/logout', { method: 'POST' })
-                  dispatch(clearUser())
-                  setShowLogoutModal(false)
-                  alert('Logged out!')
-                }} 
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-              >
+                onClick={handleLogout} 
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
                 Yes
               </button>
             </div>

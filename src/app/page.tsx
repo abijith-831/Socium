@@ -15,13 +15,13 @@ const HomePage = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex gap-6 w-full pt-6">
+      <div className="flex gap-6 w-full pt-6 px-2 sm:px-4  md:px-8 lg:px-10 xl:px-10 2xl:px-20">
         {/* Left Menu */}
-        <div className="hidden xl:block w-[20%]">
+        <div className="hidden xl:block w-[20%] ">
           <LeftMenu type="home" />
         </div>
 
-        <div className="w-full lg:w-[70%] xl:w-[60%]">
+        <div className="w-full lg:w-[70%] xl:w-[60%] ">
           <div className="flex flex-col gap-6">
             <Stories />
             <AddPosts />
