@@ -3,18 +3,24 @@ import LeftMenu from '@/components/LeftMenu'
 import RightMenu from '@/components/RightMenu'
 import React from 'react'
 import Image from 'next/image'
+import Navbar from '@/components/Navbar'
 
 const ProfilePage = ({ params }: { params: { id: string } }) => {
   const userId = params.id
 
   return (
-    <div className='flex gap-6 w-full pt-6'>
+    <div className='w-full'>
+      <div className="bg-slate-200 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-32">
+        <Navbar />
+      </div>
+    <div className='flex gap-6 w-full pt-6 px-2 sm:px-4  md:px-8 lg:px-10 xl:px-10 2xl:px-20'>
+
       <div className='hidden xl:block w-[20%]'><LeftMenu type='profile' /></div>
 
       <div className='w-full lg:w-[70%] xl:w-[60%]'>
         <div className='flex flex-col gap-6'>
           <div className='flex flex-col items-center justify-between'>
-            <div className='w-full h-64 relative '>
+            <div className='w-full h-48 relative '>
               <Image src='/images2/bg3.jpg' alt='' fill  className='object-cover rounded-md'></Image>
               <Image src='/images2/luffy.jpeg' alt='' width={128} height={128}   className='w-32 h-32 rounded-full absolute left-0 right-0 m-auto -bottom-16 ring-4 ring-white object-cover'></Image>
             </div>
@@ -41,6 +47,7 @@ const ProfilePage = ({ params }: { params: { id: string } }) => {
       <div className='hidden lg:block w-[30%]'>
         <RightMenu userId={userId} />
       </div>
+    </div>
     </div>
   )
 }
