@@ -11,6 +11,7 @@ export default function SignupPage() {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error , setError] = useState('')
 
   const router =  useRouter()
 
@@ -31,7 +32,11 @@ export default function SignupPage() {
       dispatch(signUpSuccess(data.user))
       router.push('/')
     } else {
-      alert(data.error || 'Signup failed')
+      setError(data.error || 'Login failed')
+
+      setTimeout(() => {
+        setError('')
+      }, 3000)
     }
   }
   
@@ -64,6 +69,11 @@ export default function SignupPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        {error && (
+          <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-4 text-sm text-center">
+            {error}
+          </div>
+        )}
         <button type="submit" className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">
           Sign Up
         </button>
