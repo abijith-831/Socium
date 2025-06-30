@@ -10,6 +10,7 @@ import { useRouter } from 'next/navigation'
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error , setError] = useState('')
 
   const dispatch = useDispatch()
   const router = useRouter()
@@ -33,7 +34,11 @@ export default function LoginPage() {
       dispatch(loginSuccess(data.user))
       router.push('/')
     } else {
-      alert(data.error || 'Login failed')
+      setError(data.error || 'Login failed')
+
+      setTimeout(() => {
+        setError('')
+      }, 3000)
     }
   }
   return (
@@ -56,6 +61,12 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+
+        {error && (
+          <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-4 text-sm text-center">
+            {error}
+          </div>
+        )}
         <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
           Login
         </button>

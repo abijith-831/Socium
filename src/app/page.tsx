@@ -21,7 +21,6 @@ const HomePage = () => {
           <LeftMenu type="home" />
         </div>
 
-        {/* Center Content */}
         <div className="w-full lg:w-[70%] xl:w-[60%]">
           <div className="flex flex-col gap-6">
             <Stories />

@@ -18,7 +18,7 @@ export default function RootLayout({
     <StoreProvider>
       <html lang="en">
         <body>
-          <div className="bg-slate-400 px-4 w-full md:px-8 lg:px-10 xl:px-10 2xl:px-20">
+          <div className="bg-slate-400  w-full ">
             {children}
           </div>
         </body>
