@@ -27,10 +27,8 @@ export default function LoginPage() {
     const data = await res.json()
 
     if (res.ok) {
-      console.log('ree',res);
-      
-      console.log('after login',data.user);
       localStorage.setItem('token', data.token)
+      localStorage.setItem('userId', data.user.id)
       dispatch(loginSuccess(data.user))
       router.push('/')
     } else {

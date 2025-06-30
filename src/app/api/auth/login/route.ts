@@ -11,7 +11,22 @@ export async function POST(req:Request){
     try {
         const { email , password } = await req.json()
 
-        const user = await prisma.user.findUnique({ where : {email}})
+        const user = await prisma.user.findUnique({
+            where: { email },
+            include: {
+              posts: true,
+              comments: true,
+              likes: true,
+              followers: true,
+              following: true,
+              followRequestSend: true,
+              followRequestReceived: true,
+              blockSend: true,
+              blockReceived: true,
+              stories: true,
+            }
+          })
+          
         if(!user){
             return new Response(JSON.stringify({error:'Invalid email or Password'}),{status:401})
         }
@@ -33,6 +48,8 @@ export async function POST(req:Request){
           path: '/',
           maxAge: 60 * 60 * 24 * 7,
         })
+        console.log('login route',user);
+        
 
         return new Response(JSON.stringify({success:true , token , user}),{status:200})
     } catch (error) {
