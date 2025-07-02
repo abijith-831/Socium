@@ -29,6 +29,7 @@ export default function LoginPage() {
     if (res.ok) {
       localStorage.setItem('token', data.token)
       localStorage.setItem('userId', data.user.id)
+      
       dispatch(loginSuccess(data.user))
       router.push('/')
     } else {

@@ -27,9 +27,9 @@ export default function SignupPage() {
     const data = await res.json()
   
     if (res.ok) {
-      console.log('sing uo route',data.user);
       localStorage.setItem('token', data.token) 
       localStorage.setItem('userId', data.user.id) 
+      
       dispatch(signUpSuccess(data.user))
       router.push('/')
     } else {

@@ -15,8 +15,6 @@ const Navbar = () => {
   const [showLogoutModal , setShowLogoutModal] = useState(false)
   const user = useSelector((state: RootState) => state.user.currentUser)
 
-  console.log('User from Navbar Redux:', user)
-
 
   const dispatch = useDispatch()
   const router = useRouter()

@@ -48,9 +48,7 @@ export async function POST(req:Request){
           path: '/',
           maxAge: 60 * 60 * 24 * 7,
         })
-        console.log('login route',user);
         
-
         return new Response(JSON.stringify({success:true , token , user}),{status:200})
     } catch (error) {
         console.error('Login Error',error)

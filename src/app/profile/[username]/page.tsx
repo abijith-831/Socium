@@ -8,9 +8,12 @@ import Navbar from '@/components/Navbar'
 const ProfilePage = ({ params }: { params: { id: string } }) => {
   const userId = params.id
 
+  console.log('para',userId);
+  
+
   return (
     <div className='w-full'>
-      <div className="bg-slate-200 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-32">
+      <div   className="bg-slate-200 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-32">
         <Navbar />
       </div>
     <div className='flex gap-6 w-full pt-6 px-2 sm:px-4  md:px-8 lg:px-10 xl:px-10 2xl:px-20'>
