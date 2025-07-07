@@ -12,7 +12,7 @@ const ProfileCard =  () => {
 
 
   return (
-    <div className='p-4 bg-white rounded-lg shadow-md text-sm flex flex-col gap-6'>
+    <div className='p-4 bg-white rounded-lg shadow-xl text-sm flex flex-col gap-6'>
       <div className='h-20 relative'>
         <Image src={user?.cover|| '/images2/bg1.jpg'} alt='profile picture' fill className='rounded-md object-cover'></Image>
         <Image src={user?.avatar || '/images2/bg2.jpeg'} alt='cover picture' width={48} height={48} className='rounded-full object-cover w-12 h-12 absolute left-0 right-0 m-auto -bottom-6 ring-1 ring-white z-10'></Image>

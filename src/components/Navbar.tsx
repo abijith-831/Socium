@@ -32,12 +32,12 @@ const Navbar = () => {
   
   
   return (
-    <div className='h-24 flex w-full items-center justify-between'>
+    <div className='h-24 flex w-full items-center justify-between ' >
       <div className='left md:hidden lg:block w-[20%]'>
-        <Link href='/' className='font-bold text-xl text-blue-500'>SOCIUM</Link>
+        <Link href='/' className='font-bold text-xl text-black'>SOCIUM</Link>
       </div>
       <div className='center hidden md:flex w-[50%] items-center justify-between'>
-        <div className='flex  gap-6 text-gray-600'>
+        <div className='flex  gap-6 text-black'>
         <Link href="/" className="flex items-center gap-2">
             <Home className="w-5 h-5 " />
             <span>Home</span>
@@ -51,8 +51,8 @@ const Navbar = () => {
             <span>Stories</span>
         </Link>
        </div>
-       <div className='hidden xl:flex p-2 bg-slate-300 items-center rounded-xl'>
-        <Search size={24} strokeWidth={2} className="text-gray-500" />
+       <div className='hidden xl:flex p-2 bg-slate-200 items-center rounded-xl'>
+        <Search size={24} strokeWidth={2} className="text-black" />
         <input type="text" placeholder='search ...' className='bg-transparent outline-none' />
        </div>
       </div>

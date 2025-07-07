@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <div className="w-full">
       {/* Navbar */}
-      <div className="bg-slate-200 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-32">
+      <div className="bg-white px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-32 shadow-xl">
         <Navbar />
       </div>
 

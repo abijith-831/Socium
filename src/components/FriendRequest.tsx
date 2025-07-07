@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const FriendRequest = () => {
   return (
-    <div className='p-4 bg-white rounded-lg shadow-md text-sm'>
+    <div className='p-4 bg-white rounded-lg shadow-xl text-sm'>
       {/* TOP */}
       <div className='flex justify-between items-center font-medium'>
         <span className='text-gray-500 '>Friend Requests</span>
