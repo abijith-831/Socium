@@ -57,7 +57,7 @@ const Navbar = () => {
        </div>
       </div>
       <div className='right w-[30%] flex  gap-4 xl:gap-8 justify-end'>
-                <div className="cursor-pointer">
+                <div onClick={()=>router.push(`/profile/${user?.username}`)} className="cursor-pointer">
                     <Users className="w-6 h-6" />
                 </div>
                 <div className="cursor-pointer">

@@ -4,11 +4,23 @@ import RightMenu from '@/components/RightMenu'
 import React from 'react'
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
+import { prisma } from '@/lib/client'
 
-const ProfilePage = ({ params }: { params: { id: string } }) => {
-  const userId = params.id
+const ProfilePage = async({ params }: { params: { username: string } }) => {
+  
+  const {username} = params
 
-  console.log('para',userId);
+  const user = await prisma.user.findUnique({
+    where:{username},
+    include:{
+      posts:true,
+      followers:true,
+      following:true,
+      stories:true
+    }
+  })
+
+  console.log('user from profile',user);
   
 
   return (
@@ -27,18 +39,18 @@ const ProfilePage = ({ params }: { params: { id: string } }) => {
               <Image src='/images2/bg3.jpg' alt='' fill  className='object-cover rounded-md'></Image>
               <Image src='/images2/luffy.jpeg' alt='' width={128} height={128}   className='w-32 h-32 rounded-full absolute left-0 right-0 m-auto -bottom-16 ring-4 ring-white object-cover'></Image>
             </div>
-            <h1 className='mt-20 mb-4 text-2xl font-medium'>Abhijith Asokan</h1>
+            <h1 className='mt-20 mb-4 text-2xl font-medium'>{user?.username}</h1>
             <div className='flex items-center justify-center gap-12 mb-4'>
               <div className='flex flex-col items-center'>
-                  <span className='font-medium'> 123</span>
+                  <span className='font-medium'>{user?.posts.length}</span>
                   <span className='text-sm'>Posts </span>
               </div>
               <div className='flex flex-col items-center'>
-                  <span className='font-medium'> 12.K</span>
+                  <span className='font-medium'>{user?.followers.length}</span>
                   <span className='text-sm'>Followers </span>
               </div>
               <div className='flex flex-col items-center'>
-                  <span className='font-medium'> 1.6 K </span>
+                  <span className='font-medium'>{user?.following.length}</span>
                   <span className='text-sm '>Following </span>
               </div>
             </div>
@@ -48,7 +60,7 @@ const ProfilePage = ({ params }: { params: { id: string } }) => {
       </div>
 
       <div className='hidden lg:block w-[30%]'>
-        <RightMenu userId={userId} />
+        <RightMenu  />
       </div>
     </div>
     </div>
