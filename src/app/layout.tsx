@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <StoreProvider>
-          <div className="bg-white w-full">
+          <div className="bg-slate-100 w-full">
             {children}
           </div>
         </StoreProvider>

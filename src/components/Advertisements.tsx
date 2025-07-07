@@ -25,7 +25,7 @@ const Advertisements = ({size}: {size : "sm"|"md"|"lg"}) => {
         loremksdfnsnasdjmcjbsjnfb s kjcnsjkfn
         loremksdfnsnasdjmcjbsjnfb s kjcnsjkfn
       </p>
-      <button className='bg-gray-200 w-full my-4 text-gray-500 p-2 text-xs rounded-lg'>learn more</button>
+      <button className='bg-[#c8f696] w-full my-4  p-2 text-xs rounded-lg'>learn more</button>
     </div>
   )
 }

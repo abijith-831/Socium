@@ -23,24 +23,24 @@ const Post = () => {
         {/* INTERTATION */}
         <div className='flex items-center justify-between text-sm my-4'>
             <div className='flex gap-8'>
-                <div className='flex items-center gap-4 bg-slate-200 p-2 rounded-xl'>
+                <div className='flex items-center gap-4 bg-[#d2f8ab] p-2 rounded-xl'>
                     <Image src='/images/like.png' alt='like' width={16} height={16} className='cursor-pointer'></Image>
                     <span className='text-gray-300'> |</span>
-                    <span className='text-gray-500'>123<span className='hidden md:inline'> Likes</span> </span>
+                    <span className=''>123<span className='hidden md:inline'> Likes</span> </span>
                 </div>
             </div>
             <div className='flex gap-8'>
-                <div className='flex items-center gap-4 bg-slate-200 p-2 rounded-xl'>
+                <div className='flex items-center gap-4 bg-[#d2f8ab] p-2 rounded-xl'>
                     <Image src='/images/comment.png' alt='like' width={16} height={16} className='cursor-pointer'></Image>
                     <span className='text-gray-300'> |</span>
-                    <span className='text-gray-500'>123<span className='hidden md:inline'> Comments</span> </span>
+                    <span className=''>123<span className='hidden md:inline'> Comments</span> </span>
                 </div>
             </div>
             <div className='flex gap-8'>
-                <div className='flex items-center gap-4 bg-slate-200 p-2 rounded-xl'>
+                <div className='flex items-center gap-4 bg-[#d2f8ab] p-2 rounded-xl'>
                     <Image src='/images/share.png' alt='like' width={16} height={16} className='cursor-pointer'></Image>
                     <span className='text-gray-300'> |</span>
-                    <span className='text-gray-500'>123<span className='hidden md:inline'> Shares</span> </span>
+                    <span className=''>123<span className='hidden md:inline'> Shares</span> </span>
                 </div>
             </div>
         </div>

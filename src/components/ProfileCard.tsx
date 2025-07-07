@@ -27,7 +27,7 @@ const ProfileCard =  () => {
             </div>
             <span className='text-xs text-gray-500'>{user?.followers?.length} Followers </span>
         </div>
-            <button  className='bg-blue-500 text-white text-xs p-2 rounded-md mt-2'>My Profile</button>
+            <button  className='bg-[#d2f8ab] text-black text-xs font-bold px-6 py-2 rounded-md mt-2'>My Profile</button>
       </div>
     </div>
   )

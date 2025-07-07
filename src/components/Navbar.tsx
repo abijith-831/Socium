@@ -51,7 +51,7 @@ const Navbar = () => {
             <span>Stories</span>
         </Link>
        </div>
-       <div className='hidden xl:flex p-2 bg-slate-200 items-center rounded-xl'>
+       <div className='hidden xl:flex p-2 bg-[#d2f8ab] items-center rounded-xl'>
         <Search size={24} strokeWidth={2} className="text-black" />
         <input type="text" placeholder='search ...' className='bg-transparent outline-none' />
        </div>

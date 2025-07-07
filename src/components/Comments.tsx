@@ -7,7 +7,7 @@ const Comments = () => {
       {/* WRITE */}
       <div className='flex items-center gap-4'>
         <Image src='/images2/bg1.jpg' alt='' width={32} height={32} className='w-8 h-8 rounded-full'></Image>
-        <div className='flex flex-1 items-center justify-between bg-slate-200 rounded-xl text-sm px-4 py-2 w-full '>
+        <div className='flex flex-1 items-center justify-between bg-[#d2f8ab] rounded-xl text-sm px-4 py-2 w-full '>
           <input type="text" placeholder='Write a comment...' className='bg-transparent outline-none flex-1' />
           <Image  src='/images/emoji.png'  alt='emoji'  width={16}  height={16}  className='w-8 h-8 border-2 cursor-pointer self-end'   />
         </div>

@@ -16,11 +16,11 @@ const BirthDays = () => {
           <span className='font-medium'>abhi aaa</span>
         </div>
         <div className='flex gap-3 justify-end'>
-          <button className='bg-blue-500 text-white text-sm  px-2 py-1 rounded-md '>celebrate</button>
+          <button className='bg-[#d2f8ab] text-sm  px-2 py-1 rounded-md '>celebrate</button>
         </div>
       </div>
       {/* UPCOMING */}
-      <div className='p-4 mt-3 bg-slate-200 rounded-lg flex items-center gap-4'>
+      <div className='p-4 mt-3 bg-[#d2f8ab] rounded-lg flex items-center gap-4'>
         <Image src='/images/gift.png' alt=''width={24} height={24}></Image>
         <Link href='/' className='flex flex-col gap-1 text-xs'>
           <span className='text-gray-700 font-semibold'>Upcoming Birthdays</span>
