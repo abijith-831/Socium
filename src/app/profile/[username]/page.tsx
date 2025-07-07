@@ -36,8 +36,8 @@ const ProfilePage = async({ params }: { params: { username: string } }) => {
         <div className='flex flex-col gap-6'>
           <div className='flex flex-col items-center justify-between'>
             <div className='w-full h-48 relative '>
-              <Image src='/images2/bg3.jpg' alt='' fill  className='object-cover rounded-md'></Image>
-              <Image src='/images2/luffy.jpeg' alt='' width={128} height={128}   className='w-32 h-32 rounded-full absolute left-0 right-0 m-auto -bottom-16 ring-4 ring-white object-cover'></Image>
+              <Image src={user?.cover || '/images2/bg3.jpg'} alt='' fill  className='object-cover rounded-md'></Image>
+              <Image src={user?.avatar ||'/images2/luffy.jpeg'} alt='' width={128} height={128}   className='w-32 h-32 rounded-full absolute left-0 right-0 m-auto -bottom-16 ring-4 ring-white object-cover'></Image>
             </div>
             <h1 className='mt-20 mb-4 text-2xl font-medium'>{user?.username}</h1>
             <div className='flex items-center justify-center gap-12 mb-4'>
@@ -55,12 +55,18 @@ const ProfilePage = async({ params }: { params: { username: string } }) => {
               </div>
             </div>
           </div>
+          <div className="flex justify-center">
+              <button className='bg-[#d2f8ab] px-12 py-2 rounded-md font-medium'>
+                Edit Profile
+              </button>
+            </div>
+
           <Feed />
         </div>
       </div>
 
       <div className='hidden lg:block w-[30%]'>
-        <RightMenu  />
+        <RightMenu  user={user}/>
       </div>
     </div>
     </div>
