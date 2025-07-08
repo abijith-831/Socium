@@ -1,5 +1,5 @@
 import { User } from "@prisma/client"
-import Advertisements from "./Advertisements"
+import Advertisements from "../Advertisements"
 import BirthDays from "./BirthDays"
 import FriendRequest from "./FriendRequest"
 import UserInfoCard from "./UserInfoCard"

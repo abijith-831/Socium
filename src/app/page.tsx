@@ -1,8 +1,8 @@
 import AddPosts from '@/components/AddPosts'
-import Feed from '@/components/Feed'
-import LeftMenu from '@/components/LeftMenu'
+import Feed from '@/components/feed/Feed'
+import LeftMenu from '@/components/leftMenu/LeftMenu'
 import Navbar from '@/components/Navbar'
-import RightMenu from '@/components/RightMenu'
+import RightMenu from '@/components/rightMenu/RightMenu'
 import Stories from '@/components/Stories'
 import React from 'react'
 

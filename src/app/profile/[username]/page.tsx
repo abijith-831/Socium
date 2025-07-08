@@ -1,6 +1,6 @@
-import Feed from '@/components/Feed'
-import LeftMenu from '@/components/LeftMenu'
-import RightMenu from '@/components/RightMenu'
+import Feed from '@/components/feed/Feed'
+import LeftMenu from '@/components/leftMenu/LeftMenu'
+import RightMenu from '@/components/rightMenu/RightMenu'
 import React from 'react'
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
@@ -56,7 +56,7 @@ const ProfilePage = async({ params }: { params: { username: string } }) => {
             </div>
           </div>
           <div className="flex justify-center">
-              <button className='bg-[#d2f8ab] px-12 py-2 rounded-md font-medium'>
+              <button className='bg-[#d2f8ab] px-12 py-2 rounded-md font-medium hover:transition-transform hover:scale-110 duration-300'>
                 Edit Profile
               </button>
             </div>
