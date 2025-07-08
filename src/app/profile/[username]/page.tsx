@@ -55,11 +55,7 @@ const ProfilePage = async({ params }: { params: { username: string } }) => {
               </div>
             </div>
           </div>
-          <div className="flex justify-center">
-              <button className='bg-[#d2f8ab] px-12 py-2 rounded-md font-medium hover:transition-transform hover:scale-110 duration-300'>
-                Edit Profile
-              </button>
-            </div>
+
 
           <Feed />
         </div>
