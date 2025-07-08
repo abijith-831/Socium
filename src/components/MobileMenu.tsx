@@ -1,9 +1,23 @@
 "use client" 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import EditProfileModal from './rightMenu/EditProfileModal'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store';
 
 const MobileMenu = () => {
     const [isOpen , setIsOpen] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const user = useSelector((state: RootState) => state.user.currentUser)
+
+    const handleEditProfile = () => {
+      setIsModalOpen(true)
+    }
+
+    const handleCloseModal = () => {
+      setIsModalOpen(false)
+    }
+
   return (
     <div className='md:hidden' >
         <div className='flex flex-col gap-[4.5px] cursor-pointer' onClick={() => setIsOpen(prev => !prev)}>
@@ -18,10 +32,19 @@ const MobileMenu = () => {
             <Link href='/'>Friends</Link>
             <Link href='/'>Groups</Link>
             <Link href='/'>Stories</Link>
+            <Link href='/' onClick={() => user && handleEditProfile()}>Edit Profile</Link>
+
             <Link href='/'>Login</Link>
         </div>
       )}
+{isModalOpen && user && (
+  <EditProfileModal 
+    user={user}
+    onClose={handleCloseModal}
+  />
+)}
     </div>
+
   )
 }
 
